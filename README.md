@@ -6,9 +6,9 @@ Repositorio principal para el desarrollo del proyecto
 
 | Nombre | Github | Email |
 | :----- | :----- | :------- |
-| LUIS ALBERTO AMPUERO VALENZUELA | X | laampuero@uc.cl |
-| ÍTALO RODRIGO CONTRERAS NARBONA | X | iocontreras@uc.cl |
-| Renzo Mauricio Solari Ibacache | X | rmsolari@uc.cl |
+| LUIS ALBERTO AMPUERO VALENZUELA | Tyrell-Wellick | laampuero@uc.cl |
+| ÍTALO RODRIGO CONTRERAS NARBONA | icontrerasn | iocontreras@uc.cl |
+| Renzo Mauricio Solari Ibacache | rmsolari | rmsolari@uc.cl |
 
 ## Product Owner
 | Nombre | Github | Email |
