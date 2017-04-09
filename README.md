@@ -1,4 +1,4 @@
-# Grupo13
+# Grupo13 :V
 Repositorio principal para el desarrollo del proyecto
 
 
@@ -18,5 +18,7 @@ Repositorio principal para el desarrollo del proyecto
 ________________________
 
 # Read me
+
+#:V
 
 Documento de especificaciones del alumno.
