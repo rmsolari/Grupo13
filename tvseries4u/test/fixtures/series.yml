@@ -1,0 +1,36 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyText
+  user: one
+
+two:
+  nombre: MyText
+  user: two
+
+orange:
+  nombre: "I just ate an orange!"
+  created_at: <%= 10.minutes.ago %>
+  user: italo
+
+tau_manifesto:
+  nombre: "Check out the @tauday site by @mhartl: http://tauday.com"
+  created_at: <%= 3.years.ago %>
+  user: italo
+
+cat_video:
+  nombre: "Sad cats are sad: http://youtu.be/PKffm2uI4dk"
+  created_at: <%= 2.hours.ago %>
+  user: italo
+
+most_recent:
+  nombre: "Writing a short test"
+  created_at: <%= Time.zone.now %>
+  user: italo
+
+<% 30.times do |n| %>
+serie_<%= n %>:
+  nombre: <%= Faker::Lorem.sentence(5) %>
+  created_at: <%= 42.days.ago %>
+  user: italo
+<% end %>
