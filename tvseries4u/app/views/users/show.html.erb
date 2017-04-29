@@ -7,18 +7,16 @@
         <%= gravatar_for @user %><br>
         <%= @user.name %>
       </font></h4>
-<<<<<<< HEAD
     </section>
     <section class="stats">
       <%= render 'shared/stats' %>
-=======
->>>>>>> 74f807d9ab02d40a7172edeae3d389b691ea1339
+
     </section>
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <h3>Series (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
         <%= render @microposts %>
       </ol>
