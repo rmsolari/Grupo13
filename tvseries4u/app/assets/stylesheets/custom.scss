@@ -36,6 +36,7 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  color: #fff
 }
 
 h2 {
@@ -44,12 +45,13 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: #777;
+  color: #fff;
 }
 
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+  color: #fff
 }
 
 /* header */
@@ -76,29 +78,32 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
-  color: #777;
+  color: #fff;
 }
 
 footer a {
-  color: #555;
+  color: #fff;
 }
 
 footer a:hover {
-  color: #222;
+  color: #fff;
 }
 
 footer small {
   float: left;
+  color: #fff;
 }
 
 footer ul {
   float: right;
   list-style: none;
+  color: #fff;
 }
 
 footer ul li {
   float: left;
   margin-left: 15px;
+  color: #fff;
 }
 
 /* mixins, variables, etc. */
@@ -126,6 +131,7 @@ $gray-medium-light: #eaeaea;
 aside {
   section.user_info {
     margin-top: 20px;
+    color: #fff;
   }
   section {
     padding: 10px 0;
@@ -133,11 +139,13 @@ aside {
      &:first-child {
        border: 0;
        padding-top: 0;
+       color: #fff;
      }
      span {
        display: block;
        margin-bottom: 3px;
        line-height: 1;
+       color: #fff;
      }
      h1 {
        font-size: 1.4em;
@@ -145,6 +153,7 @@ aside {
        letter-spacing: -1px;
        margin-bottom: 3px;
        margin-top: 0px;
+       color: #fff;
      }
    }
 }
@@ -161,7 +170,7 @@ aside {
 /* forms */
 
 input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
+  border: 1px solid #fff;
   width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
