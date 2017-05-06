@@ -1,0 +1,11 @@
+<%= form_for(@micropost) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+<<<<<<< HEAD
+    <%= f.text_area :content, placeholder: "Ingresa una nueva serie .." %>
+=======
+    <%= f.text_area :content, placeholder: "Crear nueva serie..." %>
+>>>>>>> c6fd5ade0aa68ee27d87b82f46140f60365af8af
+  </div>
+  <%= f.submit "Añadir", class: "btn btn-primary" %>
+<% end %>
