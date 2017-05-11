@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20170511035230) do
     t.string   "name"
     t.string   "gender"
     t.string   "description"
+    t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["user_id", "created_at"], name: "index_movies_on_user_id_and_created_at"

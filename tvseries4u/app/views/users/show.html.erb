@@ -21,10 +21,10 @@
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
-    <% if @user.microposts.any? %>
-      <h3>Series (<%= @user.microposts.count %>)</h3>
+    <% if @user.movies.any? %>
+      <h3>Series (<%= @user.movies.count %>)</h3>
       <ol class="microposts">
-        <%= render @microposts %>
+        <%= render @movies %>
       </ol>
     <% end %>
   </div>

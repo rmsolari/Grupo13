@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :logged_in?, only: [:create, :destroy]
   before_action :correct_user, only: :destroy
 
   def create
@@ -22,7 +22,7 @@ class MoviesController < ApplicationController
   private
 
     def movie_params
-      params.require(:serie).permit(:nanem, :description, :gender)
+      params.require(:movie).permit(:name, :description, :gender)
     end
 
     def correct_user
