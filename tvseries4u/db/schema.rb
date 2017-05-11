@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170429224813) do
+ActiveRecord::Schema.define(version: 20170511035230) do
 
-  create_table "microposts", force: :cascade do |t|
-    t.text     "content"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
-    t.index ["user_id"], name: "index_microposts_on_user_id"
+  create_table "movies", force: :cascade do |t|
+    t.string   "name"
+    t.string   "gender"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id", "created_at"], name: "index_movies_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_movies_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -29,15 +30,6 @@ ActiveRecord::Schema.define(version: 20170429224813) do
     t.index ["followed_id"], name: "index_relationships_on_followed_id"
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
-  end
-
-  create_table "series", force: :cascade do |t|
-    t.text     "nombre_serie"
-    t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["user_id", "created_at"], name: "index_series_on_user_id_and_created_at"
-    t.index ["user_id"], name: "index_series_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
