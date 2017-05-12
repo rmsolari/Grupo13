@@ -5,4 +5,5 @@ class ApplicationController < ActionController::Base
   def hello
     render html: "Bienvenido a TVSeries4u"
   end
+
 end
