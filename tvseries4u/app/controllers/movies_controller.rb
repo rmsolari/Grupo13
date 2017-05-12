@@ -2,9 +2,13 @@ class MoviesController < ApplicationController
   before_action :logged_in?, only: [:create, :destroy]
   before_action :correct_user, only: :destroy
 
+  def new
+    @movie = Movie.new
+  end
+
   def create
-    @movie = current_user.movies.build(movie_params)
-    if @movie.save
+    @movie = current_user.movies.new(movie_params)
+    if @movie.saves
       flash[:success] = "Serie agregada!"
       redirect_to root_url
     else
