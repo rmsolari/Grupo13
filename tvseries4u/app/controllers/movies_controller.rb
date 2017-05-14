@@ -8,13 +8,17 @@ class MoviesController < ApplicationController
 
   def create
     @movie = current_user.movies.new(movie_params)
-    if @movie.saves
+    if @movie.save
       flash[:success] = "Serie agregada!"
       redirect_to root_url
     else
       @feed_items = []
       render 'static_pages/home'
     end
+  end
+
+  def show
+    @movie = current_user.movies.find(params[:id])
   end
 
   def destroy

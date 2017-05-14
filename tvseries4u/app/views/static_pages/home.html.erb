@@ -3,6 +3,7 @@
 </head>
 <body>
 	<% if logged_in? %>
+	<h1>Lista de series</h1>
 	<div class="jumbotron">
 	  <div class="row">
 	    <aside class="col-md-4">
@@ -12,9 +13,9 @@
 	      </section> -->
 	    </aside>
         <div class="col-md-15">
-      		<h3>Lista de series</h3>
       		<%= render 'shared/feed' %>
-					<%= link_to "Añadir nueva serie", new_movie_path, class: "btn btn-lg btn-info" %>
+					<center><%= link_to "Añadir nueva serie", new_movie_path, class: "btn btn-lg btn-info",
+					style: 'color:#FFFFFF;' %></center>
     	</div>
 	  </div>
 	</div>
