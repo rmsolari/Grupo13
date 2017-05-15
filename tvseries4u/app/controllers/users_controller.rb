@@ -12,8 +12,10 @@ class UsersController < ApplicationController
   end
 
   def show
+    if current_user == User.find(params[:id])
     @user = User.find(params[:id])
     @movies = @user.movies.all
+    end
   end
 
   def create
