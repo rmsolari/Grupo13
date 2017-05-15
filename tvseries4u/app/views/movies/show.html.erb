@@ -1,0 +1,17 @@
+<% provide(:title, @movie.name) %> 
+<h1><%=@movie.name%></h1>
+<div class="jumbotron">
+<div class="row">
+  <aside class="col-md-4">
+    <% if @movie.gender.present? %>
+    <span class="gender">Género: <%= @movie.gender %></span><br>
+    <% end %>
+    <% if @movie.description.present? %>
+    <span class="description">Descripción: <%= @movie.description %></span><br>
+    <% end %>
+  </aside>
+  <div class="col-md-8">
+
+  </div>
+  </div>
+</div>

@@ -17,6 +17,10 @@ class MoviesController < ApplicationController
     end
   end
 
+  def show
+    @movie = current_user.movies.find(params[:id])
+  end
+
   def destroy
     @movie.destroy
     flash[:success] = "Serie eliminada!"

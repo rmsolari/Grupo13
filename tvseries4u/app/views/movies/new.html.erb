@@ -1,8 +1,15 @@
-<%= form_for(@movie) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
+<h1>Añadir nueva serie</h1>
+<div clas="container">
+  <div class="jumbotron">
+    <%= form_for(@movie) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <%= f.label :nombre %>
     <%= f.text_area :name, placeholder: "Ingresa nombre de nueva serie .." %>
+    <%= f.label :género %>
     <%= f.text_area :gender, placeholder: "Ingresa género de serie" %>
+    <%= f.label :descripción %>
+    <%= f.text_area :description, placeholder: "Ingresa descripción de serie" %>
+    <%= f.submit "Añadir", class: "btn btn-primary" %>
+    <% end %>
   </div>
-  <%= f.submit "Añadir", class: "btn btn-primary" %>
-<% end %>
+</div>

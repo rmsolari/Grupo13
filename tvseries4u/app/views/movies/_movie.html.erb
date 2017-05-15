@@ -1,5 +1,10 @@
 <li id="<%= movie.id %>">
+  <% if current_user.id = movie.user_id %>
+  <span class="name"><%= link_to movie.name, movie, style: 'color:#2E9AFE;' %></span>
+  <% else %>
+  no es igual
   <span class="name"><%= movie.name %></span>
+  <% end %>
   <% if movie.gender.present? %>
   <span class="gender">, Género: <%= movie.gender %></span>
   <% end %>

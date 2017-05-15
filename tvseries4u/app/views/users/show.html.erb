@@ -13,7 +13,7 @@
     <%= render 'follow_form' if logged_in? %>
     <% if @user.movies.any? %>
       <h3>Series (<%= @user.movies.count %>)</h3>
-      <ol class="microposts">
+      <ol class="movies">
         <%= render @movies %>
       </ol>
     <% end %>
