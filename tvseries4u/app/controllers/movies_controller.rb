@@ -18,7 +18,8 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = current_user.movies.find(params[:id])
+    @movie=Movie.all.find(params[:id])
+#  @movie = current_user.movies.find(params[:id])
   end
 
   def destroy
