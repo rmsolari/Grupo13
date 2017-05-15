@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
 
   def create
     @movie = current_user.movies.new(movie_params)
-    if @movie.saves
+    if @movie.save
       flash[:success] = "Serie agregada!"
       redirect_to root_url
     else
