@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
 
   get '/new_movie', to: 'movies#new'
   resources :users do

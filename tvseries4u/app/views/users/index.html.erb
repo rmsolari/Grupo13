@@ -3,14 +3,20 @@
 <div class="jumbotron">
 <ul class="users">
   <% @users.each do |user| %>
-    <li>
-      <%= gravatar_for user, size: 50 %>
-      <% if current_user.id == user.id %>
-      <%= link_to user.name, user %>
-      <% else %>
-      <%= user.name %>
-      <% end %>
-    </li>
+    <% if user != current_user %>
+      <li>
+        <%= gravatar_for user, size: 50 %>
+        <%= user.name%>
+        <%= link_to "Eliminar", admin_destroy_user_path(user),
+         method: :delete,
+         data: { confirm: "Estás seguro de eliminar a "+user.name+"?" } %>
+      </li>
+    <% else %>
+      <li>
+        <%= gravatar_for user, size: 50 %>
+        <%= user.name%>
+      </li>
+    <% end %>
   <% end %>
 </ul>
 </div>
