@@ -6,8 +6,8 @@ Repositorio principal para el desarrollo del proyecto :V
 
 | Nombre | Github | Email |
 | :----- | :----- | :------- |
-| LUIS ALBERTO AMPUERO VALENZUELA | Tyrell-Wellick | laampuero@uc.cl |
-| ÍTALO RODRIGO CONTRERAS NARBONA | icontrerasn | iocontreras@uc.cl |
+| Luis Alberto Ampuero Valenzuela | Tyrell-Wellick | laampuero@uc.cl |
+| Ítalo Rodrigo Contreras Narbona | icontrerasn | iocontreras@uc.cl |
 | Renzo Mauricio Solari Ibacache | rmsolari | rmsolari@uc.cl |
 
 ## Product Owner
