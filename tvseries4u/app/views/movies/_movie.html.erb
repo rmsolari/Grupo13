@@ -1,22 +1,16 @@
 <li id="<%= movie.id %>">
-  <% if current_user.id = movie.user_id %>
-  <span class="name"><%= link_to movie.name, movie, style: 'color:#2E9AFE;' %></span>
-  <% else %>
-  no es igual
-  <span class="name"><%= movie.name %></span>
-  <% end %>
+  <span class="name"><%= link_to movie.name, movie, style: 'color:#2E9AFE;' %></span> 
   <% if movie.gender.present? %>
-  <span class="gender">, Género: <%= movie.gender %></span>
+    <span class="gender">, Género: <%= movie.gender %></span>
   <% end %>
   <% if movie.description.present? %>
-  <span class="description">, Descripción: <%= movie.description %></span>
+    <span class="description">, Descripción: <%= movie.description %></span>
   <% end %>
-
   <span class="timestamp">
     Posted <%= time_ago_in_words(movie.created_at) %> ago.
-    <% if current_user?(movie.user) %>
-     <%= link_to "delete", movie, method: :delete,
-                                  data: { confirm: "Estás seguro?" } %>
-   <% end %>
+
+    <% if current_user.id == movie.user_id || current_user.admin?%>
+      <%= link_to "delete", movie, method: :delete, data: { confirm: "Estás seguro?" } %>
+    <% end %>
   </span>
 </li>
