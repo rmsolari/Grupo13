@@ -3,18 +3,13 @@
   <% if movie.gender.present? %>
     <span class="gender">, Género: <%= movie.gender %></span>
   <% end %>
-<<<<<<< HEAD
   <% if movie.description.present? %>
     <span class="description">, Descripción: <%= movie.description %></span>
-=======
-  <% if movie.description.present? %><br>
-  <span class="description">Descripción: <%= movie.description %></span>
->>>>>>> visitante
   <% end %>
   <span class="timestamp">
     Posted <%= time_ago_in_words(movie.created_at) %> ago.
 
-    <% if current_user.id == movie.user_id || current_user.admin?%>
+    <% if current_user.present? && (current_user.id == movie.user_id || current_user.admin?)%>
       <%= link_to "delete", admin_destroy_movie_path(movie),
        method: :delete, data: { confirm: "Estás seguro que quieres eliminar la serie #{movie.name} de #{movie.user.name}?" } %>
     <% end %>

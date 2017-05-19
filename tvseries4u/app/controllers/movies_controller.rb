@@ -9,7 +9,7 @@ class MoviesController < ApplicationController
     @movie = current_user.movies.new(movie_params)
     if @movie.save
       flash[:success] = "Serie agregada!"
-      redirect_to root_url
+      redirect_to home_url
     else
       @feed_items = []
       render 'static_pages/home'
