@@ -45,9 +45,11 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id]).destroy
     if @user.destroy
-      redirect_to users_url, notice: "Usuario borrado exitosamente"
+      flash[:success] = "Usuario borrado exitosamente"
+      redirect_to request.referrer || users_url
     else
-      redirect_to users_url, notice: "No se pudo borrar el usuario"
+      flash[:error] = "No se pudo borrar el usuario"
+      redirect_to request.referrer || users_url
     end
   end
 

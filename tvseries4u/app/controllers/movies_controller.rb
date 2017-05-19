@@ -1,6 +1,5 @@
 class MoviesController < ApplicationController
   before_action :logged_in?, only: [:create, :destroy]
-  before_action :correct_user, only: :destroy
 
   def new
     @movie = Movie.new
@@ -23,9 +22,14 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    @movie.destroy
-    flash[:success] = "Serie eliminada!"
-    redirect_to request.referrer || root_url
+    @movie= Movie.find(params[:id]).destroy
+    if @movie.destroy
+      flash[:success] = "Serie eliminada exitosamente"
+      redirect_to request.referrer || root_url
+    else
+      flash[:error] = "No se pudo borrar el usuario"
+      redirect_to request.referrer || root_url
+    end
   end
 
   private

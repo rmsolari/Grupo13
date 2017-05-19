@@ -1,5 +1,5 @@
 <li id="<%= movie.id %>">
-  <span class="name"><%= link_to movie.name, movie, style: 'color:#2E9AFE;' %></span> 
+  <span class="name"><%= link_to movie.name, movie, style: 'color:#2E9AFE;' %></span>
   <% if movie.gender.present? %>
     <span class="gender">, Género: <%= movie.gender %></span>
   <% end %>
@@ -10,7 +10,8 @@
     Posted <%= time_ago_in_words(movie.created_at) %> ago.
 
     <% if current_user.id == movie.user_id || current_user.admin?%>
-      <%= link_to "delete", movie, method: :delete, data: { confirm: "Estás seguro?" } %>
+      <%= link_to "delete", admin_destroy_movie_path(movie),
+       method: :delete, data: { confirm: "Estás seguro que quieres eliminar la serie #{movie.name} de #{movie.user.name}?" } %>
     <% end %>
   </span>
 </li>
