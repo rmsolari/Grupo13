@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user == User.find(params[:id])
+    if current_user == User.find(params[:id]) || current_user.admin? 
     @user = User.find(params[:id])
     @movies = @user.movies.all
     end

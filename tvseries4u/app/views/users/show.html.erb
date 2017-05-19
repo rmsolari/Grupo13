@@ -10,8 +10,7 @@
     </section>
   </aside>
   <div class="col-md-8">
-    <%= render 'follow_form' if logged_in? %>
-    <% if @user.movies.any? %>
+     <% if @user.movies.any? %>
       <h3>Series (<%= @user.movies.count %>)</h3>
       <ol class="movies">
         <%= render @movies %>
