@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user == User.find(params[:id]) || current_user.admin? 
+    if current_user == User.find(params[:id]) || current_user.admin?
     @user = User.find(params[:id])
     @movies = @user.movies.all
     end
@@ -51,6 +51,11 @@ class UsersController < ApplicationController
       flash[:error] = "No se pudo borrar el usuario"
       redirect_to request.referrer || users_url
     end
+  end
+
+  def genders
+    @user=User.find(params[:id])
+    @genders=User.find(params[:id]).genders.all
   end
 
   private

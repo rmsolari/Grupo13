@@ -17,11 +17,12 @@ Rails.application.routes.draw do
   get '/new_movie', to: 'movies#new'
   resources :users do
     member do
-      get :following, :followers
+      get :following, :followers, :genders
     end
   end
   resources :users
   resources :movies
+  resources :genders
 #  resources :movies,          only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

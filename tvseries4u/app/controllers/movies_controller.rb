@@ -3,6 +3,7 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
+    @gender=Gender.all
   end
 
   def create
@@ -35,7 +36,7 @@ class MoviesController < ApplicationController
   private
 
     def movie_params
-      params.require(:movie).permit(:name, :description, :gender)
+      params.require(:movie).permit(:name, :description, gender: [])
     end
 
     def correct_user
