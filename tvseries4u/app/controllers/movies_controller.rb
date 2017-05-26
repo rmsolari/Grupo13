@@ -3,17 +3,24 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
-    @gender=Gender.all
+    @genders= current_user.genders
   end
 
   def create
+
     @movie = current_user.movies.new(movie_params)
-    if @movie.save
-      flash[:success] = "Serie agregada!"
-      redirect_to home_url
+    if @movie.gender == "new"
+      @gender=Gender.new
+      @movie.gender=Gender.new
+      render 'genders_path'
     else
+      if @movie.save
+        flash[:success] = "Serie agregada!"
+        redirect_to home_url
+      else
       @feed_items = []
       render 'static_pages/home'
+      end
     end
   end
 
@@ -36,11 +43,12 @@ class MoviesController < ApplicationController
   private
 
     def movie_params
-      params.require(:movie).permit(:name, :description, gender: [])
+      params.require(:movie).permit(:name, :description, :gender)
     end
 
     def correct_user
       @movie = current_user.movies.find_by(id: params[:id])
       redirect_to root_url if @movie.nil?
     end
+
 end

@@ -5,7 +5,9 @@
     <section class="user_info">
       <h4><font color="black">
         <%= gravatar_for @user %><br>
-        <%= @user.name %>
+        <%= @user.name %><br><br><br><br><br>
+        <%= link_to 'Administrar géneros de series', {:controller => :genders, :action => :index} , style: 'color:#2E9AFE;' %>
+        <br><br><%= link_to 'Administrar cuentas de niño', {:controller => :genders, :action => :index} , style: 'color:#2E9AFE;' %>
       </font></h4>
     </section>
   </aside>

@@ -11,10 +11,12 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
   match 'movies/:id' => 'movies#destroy', :via => :delete, :as => :admin_destroy_movie
+  match 'genders/:id' => 'genders#destroy', :via => :delete, :as => :admin_destroy_gender
 
   get 'visitante', to: 'visitor#action'
 
   get '/new_movie', to: 'movies#new'
+  get '/new_gender', to: 'genders#new'
   resources :users do
     member do
       get :following, :followers, :genders

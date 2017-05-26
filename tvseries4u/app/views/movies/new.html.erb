@@ -6,8 +6,7 @@
     <%= f.label :nombre %>
     <%= f.text_area :name, placeholder: "Ingresa nombre de nueva serie .." %>
     <%= f.label :"selecciona género" %>
-    <%= f.collection_select :gender, Gender.all, :name, include_blank: true %>
-    <%= f.text_area :gender, placeholder: "Añadir un nuevo género " %>
+    <%= f.select(:gender, @genders.collect {|p| [ p.name ] } + [ [ 'Crear nuevo género', 'new' ] ], {:include_blank => true}) %>
     <%= f.label :descripción %>
     <%= f.text_area :description, placeholder: "Ingresa descripción de serie" %>
     <%= f.submit "Añadir", class: "btn btn-primary" %>
