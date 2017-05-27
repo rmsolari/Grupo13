@@ -1,0 +1,13 @@
+<h1>Añadir nuevo género</h1>
+<div clas="container">
+  <div class="jumbotron">
+    <%= form_for(@gender) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <%= f.label :nombre %>
+    <%= f.text_area :name, placeholder: "Ingresa nombre de género.." %>
+    <%= f.label :user_id %>
+    <%= f.text_area :user_id, placeholder: "Ingresa id de usuario.." %>
+    <%= f.submit "Añadir", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

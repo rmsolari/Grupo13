@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170525143356) do
 
   create_table "comments", force: :cascade do |t|
@@ -21,6 +22,9 @@ ActiveRecord::Schema.define(version: 20170525143356) do
     t.index ["movie_id"], name: "index_comments_on_movie_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
+=======
+ActiveRecord::Schema.define(version: 20170526001828) do
+>>>>>>> b43f8760677a64b7e6d9ce59018b4102cd3ae2e9
 
   create_table "genders", force: :cascade do |t|
     t.string   "name"
@@ -32,11 +36,11 @@ ActiveRecord::Schema.define(version: 20170525143356) do
 
   create_table "movies", force: :cascade do |t|
     t.string   "name"
-    t.string   "gender"
     t.string   "description"
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "gender"
     t.index ["user_id", "created_at"], name: "index_movies_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_movies_on_user_id"
   end

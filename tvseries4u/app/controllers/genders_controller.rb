@@ -2,7 +2,7 @@ class GendersController < ApplicationController
   before_action :logged_in?, only: [:create, :destroy]
 
   def index
-    @gender = Gender.all
+    @genders = Gender.all
   end
 
   def new
@@ -10,7 +10,7 @@ class GendersController < ApplicationController
   end
 
   def create
-    @gender = current_user.gender.new(gender_params)
+    @gender = current_user.genders.new(gender_params)
     if @gender.save
       flash[:success] = "Género agregado!"
       redirect_to home_url
@@ -38,7 +38,7 @@ class GendersController < ApplicationController
   private
 
     def gender_params
-      params.require(:gender).permit(:name)
+      params.require(:gender).permit(:name, :user_id)
     end
 
     def correct_user
