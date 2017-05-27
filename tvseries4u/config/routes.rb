@@ -21,7 +21,9 @@ Rails.application.routes.draw do
     end
   end
   resources :users
-  resources :movies
+  resources :movies do
+    resources :comments
+  end
   resources :genders
 #  resources :movies,          only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]

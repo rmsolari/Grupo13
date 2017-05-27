@@ -10,8 +10,10 @@
     <span class="description">Descripción: <%= @movie.description %></span><br>
     <% end %>
   </aside>
-  <div class="col-md-8">
-
   </div>
-  </div>
+<div class="row">
+  <aside class="col-md-4">  
+  <%= render 'comments/comment' %>
+  </aside>
+</div>
 </div>

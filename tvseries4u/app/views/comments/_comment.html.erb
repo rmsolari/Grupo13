@@ -1,0 +1,11 @@
+<% @comments.each do |comment| %>
+  <b><%= comment.user.email %>:</b>
+  <%= comment.text %>
+  <%= comment.created_at %>
+  <% if current_user == comment.user || current_user.admin? %>
+    <%= link_to "Borrar", [comment.movie, comment], method: :delete %>
+  <% end %>
+  
+<%end%>   
+
+<%= render 'comments/form' %>

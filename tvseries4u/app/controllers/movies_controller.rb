@@ -19,6 +19,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie=Movie.all.find(params[:id])
+    @comments=Comment.where(movie_id: @movie).order("created_at DESC")
 #  @movie = current_user.movies.find(params[:id])
   end
 
