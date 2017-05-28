@@ -28,6 +28,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def create_cuenta_niño
+    boy = User.new(:name => params[:boy_name],
+    :email => params[:boy_name]+'_niño@tvseries4u.com',
+    :password => current_user.password,
+    :password_confirmation => current_user.password,
+    :adulto_id => current_user.id)
+    if boy.save
+      flash[:success] = "Cuenta niño creada exitosamente"
+      redirect_to boy_accounts_path
+    else
+      flash[:error] = "No se pudo crear la cuenta niño, prueba cambiando el nombre"
+      redirect_to new_boy_creation_path
+    end
+  end
+
   def edit
     @user = User.find(params[:id])
   end

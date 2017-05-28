@@ -17,6 +17,11 @@ Rails.application.routes.draw do
 
   get '/new_movie', to: 'movies#new'
   get '/new_gender', to: 'genders#new'
+
+  get '/users/:id/signup_boy', to: 'users#new_boy', :as => :new_boy_creation
+  get '/users/:id/boy_accounts', to: 'users#boy_index', :as => :boy_accounts
+  post '/users/:id/signup_boy', to: 'users#create_cuenta_niño'
+
   resources :users do
     member do
       get :following, :followers, :genders

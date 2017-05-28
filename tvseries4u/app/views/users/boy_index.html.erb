@@ -1,0 +1,24 @@
+<% provide(:title, 'All boys') %>
+<h1>Cuentas niño</h1>
+<div class="container">
+  <div class="jumbotron">
+  <ul class="users">
+    <% if current_user.adulto_id != nil %>
+      <% current_user.niños.each do |user| %>
+        <li>
+          <%= gravatar_for @user, size: 50 %>
+          <%= link_to user.name, user %>
+          <%= link_to "Eliminar", adminssssss_destroy_user_path(user),
+           method: :delete,
+           data: { confirm: "Estás seguro de eliminar a "+user.name+"?" } %>
+        </li>
+      <% end %>
+    <% else %>
+      <li>
+        <h3>Sin cuentas niño</h3>
+    <% end %>
+    <%= link_to "+ Cuenta niño", new_boy_creation_path,
+       class: "btn btn-primary" %></li>
+  </ul>
+  </div>
+</div>

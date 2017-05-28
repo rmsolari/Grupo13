@@ -1,7 +1,10 @@
 class User < ApplicationRecord
-    has_many :movies, dependent: :destroy
     has_many :genders
     has_many :comments
+    has_many :niños, :class_name => 'User', :foreign_key => :adulto_id
+    belongs_to :adulto, :class_name => 'User'
+    has_many :movies, dependent: :destroy
+    has_many :niños_movies, :through => :niños, :class_name => 'Movie', dependent: :destroy
     has_many :active_relationships, class_name:  "Relationship",
                                 foreign_key: "follower_id",
                                 dependent:   :destroy
@@ -19,10 +22,18 @@ class User < ApplicationRecord
   	has_secure_password
   	validates :password, presence: true, length: { minimum: 6 }
 
-    def genders_for_form
-      collection = genders.where(user_id: id)
-      collection.any? ? collection : genders.build
-    end
+  def adulto?
+    adulto_id.nil?
+  end
+
+  def niño?
+    !adulto?
+  end
+
+  def genders_for_form
+    collection = genders.where(user_id: id)
+    collection.any? ? collection : genders.build
+  end
 
 	def User.digest(string)
     	cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

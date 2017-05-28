@@ -1,0 +1,21 @@
+<% provide(:title, 'new_boy') %>
+<h1>Crear cuenta niño</h1>
+<div class="container">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <%= form_for(current_user) do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
+          <%= f.label :nombre %>
+          <%= f.text_field :name, class: 'form-control' %>
+          <!-- Lo que quiero hacer acá es enviar solo el nombre de la cuenta niño
+        porque el password quiero que sea el mismo de la cuenta adulto, para
+      que tenga sentido, además agregué el parámetro adulto_id a User, según lo
+    de internet se puede manejar fácil lo de las videos creados por niños y adultos
+  revisar archivos model->user, controller->User, view->user->boy_index, new_boy -->
+          <%= f.submit "Crear cuenta", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
