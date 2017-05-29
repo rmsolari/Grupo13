@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+  class User < ApplicationRecord
     has_many :genders
     has_many :comments
     has_many :niños, :class_name => 'User', :foreign_key => :adulto_id

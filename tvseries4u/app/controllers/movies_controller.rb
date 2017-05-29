@@ -7,7 +7,6 @@ class MoviesController < ApplicationController
   end
 
   def create
-
     @movie = current_user.movies.new(movie_params)
     if @movie.gender == "new"
       @gender=Gender.new
@@ -18,8 +17,8 @@ class MoviesController < ApplicationController
         flash[:success] = "Serie agregada!"
         redirect_to home_url
       else
-      @feed_items = []
-      render 'static_pages/home'
+        @feed_items = []
+        render 'static_pages/home'
       end
     end
   end
@@ -44,7 +43,7 @@ class MoviesController < ApplicationController
   private
 
     def movie_params
-      params.require(:movie).permit(:name, :description, :gender)
+      params.require(:movie).permit(:name, :description)
     end
 
     def correct_user

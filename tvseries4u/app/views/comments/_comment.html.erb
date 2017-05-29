@@ -5,7 +5,7 @@
   <% if current_user == comment.user || current_user.admin? %>
     <%= link_to "Borrar", [comment.movie, comment], method: :delete %>
   <% end %>
-  
-<%end%>   
-
-<%= render 'comments/form' %>
+<% end %>
+<% if logged_in? %>
+	<%= render 'comments/form' %>
+<% end %>
