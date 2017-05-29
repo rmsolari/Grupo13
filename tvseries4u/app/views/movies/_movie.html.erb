@@ -1,5 +1,9 @@
 <li id="<%= movie.id %>">
-  <span class="name"><%= link_to movie.name, movie, style: 'color:#2E9AFE;' %></span>
+  <% if logged_in? %>
+    <span class="name"><%= link_to movie.name, movie, style: 'color:#2E9AFE;' %></span>
+  <% else %>
+    <b><%= movie.name %></b>
+  <% end %>
   <% if movie.gender.present? %>
     <span class="gender">, Género: <%= movie.gender %></span>
   <% end %>
