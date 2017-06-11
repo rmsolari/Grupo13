@@ -5,6 +5,7 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", home_path %></li>
+        <li><%= link_to "Búsqueda", '#' %></li>
         <li><%= link_to "Ayuda", help_path %></li>
         <% if logged_in? %>
           <% if current_user.admin? %>
