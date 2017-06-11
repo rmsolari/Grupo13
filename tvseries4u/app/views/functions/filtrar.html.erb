@@ -1,4 +1,11 @@
 <h1>Filtrar</h1>
-<div class="jumbotron">
-holas
+<div clas="container">
+  <div class="jumbotron">
+    <%= form_tag("/search", method: "get") do %>
+    <center>Seleccione género</center><br>
+    <%= collection_select :gender, :id, @genders, :id, :name %>
+    <%= submit_tag "Enviar", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
 </div>

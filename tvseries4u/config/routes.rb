@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get '/new_gender', to: 'genders#new'
 
   get'/filtrar', to: 'functions#filtrar'
+  get'/search', to: 'functions#search'
 
   get '/users/:id/signup_boy', to: 'users#new_boy', :as => :new_boy_creation
   get '/users/:id/boy_accounts', to: 'users#boy_index', :as => :boy_accounts
