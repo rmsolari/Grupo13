@@ -7,6 +7,7 @@ class GendersController < ApplicationController
 
   def new
     @gender = Gender.new
+    @user=current_user
   end
 
   def create
@@ -38,7 +39,7 @@ class GendersController < ApplicationController
   private
 
     def gender_params
-      params.require(:gender).permit(:name, :user_id)
+      params.require(:gender).permit(:name).merge(user_id: current_user.id)
     end
 
     def correct_user

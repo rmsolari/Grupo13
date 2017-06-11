@@ -3,7 +3,11 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
-    @genders= current_user.genders
+    if not current_user.admin?
+      @genders= current_user.genders + Gender.where(:user_id => 1)
+    else
+      @genders= current_user.genders
+    end
   end
 
   def create
