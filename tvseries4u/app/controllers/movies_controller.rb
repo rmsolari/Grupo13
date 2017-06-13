@@ -11,14 +11,16 @@ class MoviesController < ApplicationController
   end
 
   def create
+    puts movie_params[:gender]
     @movie = current_user.movies.new(movie_params)
+
     if @movie.gender == "new"
       @gender=Gender.new
       @movie.gender=Gender.new
       render 'genders_path'
     else
       if @movie.save
-        flash[:success] = "Serie agregada!"
+        flash[:success] = "Serie agregada!"+@movie.gender
         redirect_to home_url
       else
         @feed_items = []

@@ -7,8 +7,8 @@
     <%= submit_tag "Actualizar", class: "btn btn-primary" %>
     <% end %>
     <div id="resultados">
-      <% if @movies.any? %>
-       <h3>Series: (<%= @movies.count %>)</h3>
+      <% if @movies != nil %>
+       <h3>Series:</h3>
        <ol class="movies">
          <%= render @movies %>
        </ol>

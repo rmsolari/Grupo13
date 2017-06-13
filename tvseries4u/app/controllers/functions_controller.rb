@@ -12,7 +12,7 @@ class FunctionsController < ApplicationController
     @resultado=params[:gender]
     if @resultado
       @gender=Gender.find(params[:gender][:id])
-      @movies=Movie.find(gender: @gender[:name])
+      @movies=Movie.where(gender: @gender[:name])
     end
   end
 
