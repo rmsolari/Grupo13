@@ -1,11 +1,19 @@
 <h1>Filtrar</h1>
 <div clas="container">
   <div class="jumbotron">
-    <%= form_tag("/search", method: "get") do %>
+    <%= form_tag({:controller => "functions", :action => "filtrar"}, :method => "get") do %>
     <center>Seleccione género</center><br>
     <%= collection_select :gender, :id, @genders, :id, :name %>
-    <%= submit_tag "Enviar", class: "btn btn-primary" %>
+    <%= submit_tag "Actualizar", class: "btn btn-primary" %>
     <% end %>
+    <div id="resultados">
+      <% if @movies.any? %>
+       <h3>Series: (<%= @movies.count %>)</h3>
+       <ol class="movies">
+         <%= render @movies %>
+       </ol>
+     <% end %>
+    </div>
 
   </div>
 </div>

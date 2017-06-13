@@ -9,6 +9,11 @@ class FunctionsController < ApplicationController
     else
       @genders=Gender.where(:user_id => 1)
     end
+    @resultado=params[:gender]
+    if @resultado
+      @gender=Gender.find(params[:gender][:id])
+      @movies=Movie.find(gender: @gender[:name])
+    end
   end
 
   def search
