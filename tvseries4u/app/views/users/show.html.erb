@@ -6,7 +6,8 @@
       <h4><font color="black">
         <%= gravatar_for @user %><br>
         <%= @user.name %><br><br><br><br><br>
-        <%= link_to 'Administrar géneros de series', {:controller => :genders, :action => :index} , style: 'color:#2E9AFE;' %>
+        <%= link_to 'Editar cuenta', {:controller => :users, :action => :edit} , style: 'color:#2E9AFE;'%>
+        <br><br><%= link_to 'Administrar géneros de series', {:controller => :genders, :action => :index} %>
         <br><br><%= link_to 'Administrar cuentas niño',boy_accounts_path %>
       </font></h4>
     </section>
