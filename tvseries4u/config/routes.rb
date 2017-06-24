@@ -25,6 +25,11 @@ Rails.application.routes.draw do
   get '/users/:id/boy_accounts', to: 'users#boy_index', :as => :boy_accounts
   post '/users/:id/signup_boy', to: 'users#create_cuenta_niño'
 
+  get '/statistics', to: 'statistics#principal'
+  get '/st_generales_path', to: 'statistics#generales'
+  get '/st_usuario_path', to: 'statistics#usuario'
+  get '/st_graficos_path', to: 'statistics#graficos'
+
   resources :users do
     member do
       get :following, :followers, :genders
