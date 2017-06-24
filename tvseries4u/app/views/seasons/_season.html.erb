@@ -1,0 +1,13 @@
+<% @seasons.each do |season| %>
+  <span class="name"><%= link_to "Temporada season.number", season, style: 'color:#2E9AFE;' %></span>
+  <% end %>
+<% @last_season = @seasons.order(:id).last %>
+<% if @last_season %>
+	<% if current_user == @last_season.user || current_user.admin? %>
+	    <%= link_to "Borrar última temporada", [@last_season.movie, @last_season], method: :delete %>
+	<% end %>
+<% end %>
+<% if logged_in? %>
+	<%= render 'seasons/form' %>
+<% end %>
+<% @last_season = @seasons.order(:id).last %>

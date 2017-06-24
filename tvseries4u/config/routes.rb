@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   get '/new_movie', to: 'movies#new'
   get '/new_gender', to: 'genders#new'
+  
+  get '/season', to: 'movie#season'
 
   get'/filtrar', to: 'functions#filtrar'
   get'/search', to: 'functions#search'
@@ -32,7 +34,7 @@ Rails.application.routes.draw do
   end
   resources :users
   resources :movies do
-    resources :comments
+    resources :comments, :seasons
   end
   resources :genders
 #  resources :movies,          only: [:create, :destroy]

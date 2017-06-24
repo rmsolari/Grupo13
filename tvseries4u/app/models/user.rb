@@ -1,6 +1,7 @@
   class User < ApplicationRecord
     has_many :genders
     has_many :comments
+    has_many :seasons
     has_many :niños, :class_name => 'User', :foreign_key => :adulto_id
     belongs_to :adulto, :class_name => 'User'
     has_many :movies, dependent: :destroy

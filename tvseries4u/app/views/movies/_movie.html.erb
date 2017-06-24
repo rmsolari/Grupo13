@@ -1,6 +1,6 @@
 <li id="<%= movie.id %>">
   <% if logged_in? %>
-    <span class="name"><%= link_to movie.name, movie, style: 'color:#2E9AFE;' %></span>
+    <span class="name"><%= link_to movie.name,  movie, style: 'color:#2E9AFE;' %></span>
   <% else %>
     <b><%= movie.name %></b>
   <% end %>

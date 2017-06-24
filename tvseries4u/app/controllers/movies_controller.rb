@@ -32,7 +32,12 @@ class MoviesController < ApplicationController
   def show
     @movie=Movie.all.find(params[:id])
     @comments=Comment.where(movie_id: @movie).order("created_at DESC")
-#  @movie = current_user.movies.find(params[:id])
+    @seasons=Season.where(movie_id: @movie).order("created_at ASC")
+#   @movie = current_user.movies.find(params[:id])
+  end
+
+  def season
+    @season=Season.find(params[:id])
   end
 
   def destroy
