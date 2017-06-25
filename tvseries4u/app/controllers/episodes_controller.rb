@@ -14,7 +14,7 @@ class EpisodesController < ApplicationController
 	def vote
 		if !current_user.liked? @episode
 			@episode.liked_by current_user
-		elsif curret_user.liked? @episode
+		elsif current_user.liked? @episode
 			@episode.unliked_by current_user
 		end
 	end
@@ -28,7 +28,7 @@ class EpisodesController < ApplicationController
 			redirect_to request.referrer
 		else
 			render 'new'
-		end		
+		end
 	end
 
 	def show

@@ -1,7 +1,7 @@
 <% @episodes.each do |episode| %>
   <%= "Capítulo "+episode.numero.to_s %>
-  <%= link_to like_episode_path(episode), class:"like-btn", method: :put, remote: :true do %>
-    <%= episode.vote_by :voter => current_user %>  
+  <%= link_to like_episode_path(id: episode.id, season_id: episode.season_id), class:"like-btn", method: :put, remote: :true do %>
+    <%= episode.vote_by :voter => current_user %>
   	<% if current_user.liked? episode %>
   		<span><i class="fa fa-eye fa-2x" aria-hidden="true" style="color:red"></i></span>
     <% elsif !current_user.liked? episode %>
