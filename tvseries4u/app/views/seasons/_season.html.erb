@@ -1,5 +1,5 @@
 <% @seasons.each do |season| %>
-  <span class="name"><%= link_to "Temporada season.number", season, style: 'color:#2E9AFE;' %></span>
+  <span class="name"><%= link_to "Temporada "+season.number.to_s, season_path, style: 'color:#2E9AFE;' %></span>
   <% end %>
 <% @last_season = @seasons.order(:id).last %>
 <% if @last_season %>

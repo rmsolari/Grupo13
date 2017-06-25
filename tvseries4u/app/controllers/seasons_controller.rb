@@ -1,5 +1,4 @@
 class SeasonsController < ApplicationController
-	before_action :find_movie
 	before_action :find_season, only: [:destroy]
 
 	def index
@@ -17,13 +16,13 @@ class SeasonsController < ApplicationController
 
 		if @season.save
 			redirect_to movie_path(@movie)
-		else 
+		else
 			render 'new'
 		end
 	end
 
 	def show
-		@season = Season.find(params[:id])
+		@season = Season.find_by(movie_id: params[:id])
 	end
 
 	def destroy
@@ -34,10 +33,7 @@ class SeasonsController < ApplicationController
 	private
 
 		def find_season
-			@season = @movie.seasons.find(params[:id])
+			@season = Season.find(params[:id])
 		end
 
-		def find_movie
-			@movie = Movie.find(params[:movie_id])
-		end		
 end

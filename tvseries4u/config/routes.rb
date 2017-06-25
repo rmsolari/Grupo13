@@ -17,8 +17,8 @@ Rails.application.routes.draw do
 
   get '/new_movie', to: 'movies#new'
   get '/new_gender', to: 'genders#new'
-  
-  get '/season', to: 'movie#season'
+
+#  get '/season', to: 'seasons#show'
 
   get'/filtrar', to: 'functions#filtrar'
   get'/search', to: 'functions#search'
@@ -38,11 +38,12 @@ Rails.application.routes.draw do
     end
   end
   resources :users
+  resources :seasons
   resources :movies do
     resources :comments, :seasons
   end
   resources :genders
-#  resources :movies,          only: [:create, :destroy]
+  resources :movies,          only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

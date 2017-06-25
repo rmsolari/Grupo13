@@ -37,7 +37,8 @@ class MoviesController < ApplicationController
   end
 
   def season
-    @season=Season.find(params[:id])
+    @movie=Movie.all.find(params[:id])
+    @season=@movie.season.find(params[:id])
   end
 
   def destroy
