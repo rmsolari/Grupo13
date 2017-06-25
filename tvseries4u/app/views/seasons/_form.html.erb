@@ -1,3 +1,3 @@
-<%= form_for([@movie, @movie.seasons.build]) do |f| %>
+<%= form_for([@movie, @movie.seasons.build(movie_id:@movie.id)]) do |f| %>
 	<%= f.submit %>
 <% end %>

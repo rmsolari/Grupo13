@@ -1,4 +1,5 @@
 class SeasonsController < ApplicationController
+	before_action :find_movie
 	before_action :find_season, only: [:destroy]
 
 	def index
@@ -22,7 +23,8 @@ class SeasonsController < ApplicationController
 	end
 
 	def show
-		@season = Season.find_by(movie_id: params[:id])
+		@season = Season.find(params[:id])
+		#@season = Season.find_by(movie_id: params[:movie_id])
 	end
 
 	def destroy
@@ -34,6 +36,10 @@ class SeasonsController < ApplicationController
 
 		def find_season
 			@season = Season.find(params[:id])
+		end
+
+		def find_movie
+			@movie = Movie.find(params[:movie_id])
 		end
 
 end
