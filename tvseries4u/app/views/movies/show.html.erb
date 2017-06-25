@@ -8,6 +8,18 @@
     <% if @movie.description.present? %>
     <span class="description"><b>Descripción:</b> <%= @movie.description %></span><br>
     <% end %>
+    <b>Temporadas: </b><%= @movie.seasons.count %></span><br>
+    <% @cantidad_capitulos = 0 %>
+    <% @cantidad_capitulos_vistos = 0 %>
+    <% @movie.seasons.each do |season| %>
+    	<% @cantidad_capitulos += season.episodes.count %>
+    	<% season.episodes.each do |episode| %>
+    		<% if current_user.liked? episode %>
+    			<% @cantidad_capitulos_vistos += 1 %>
+    		<% end %>
+    	<% end %>
+    <% end %>
+    <b>Capítulos: </b><%= @cantidad_capitulos %><b> Vistos: </b><%= @cantidad_capitulos_vistos %>
   </div>
 </br>
 <div class="row">

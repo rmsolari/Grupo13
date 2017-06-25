@@ -1,6 +1,8 @@
+<center>
 <% @seasons.each do |season| %>
-  <span class="name"><%= link_to "Temporada "+season.number.to_s, season_path(id: season.id, movie_id:@movie.id), style: 'color:#2E9AFE;' %></span>
+  <span class="name"><%= link_to "Temporada "+season.number.to_s, season_path(id: season.id, movie_id:@movie.id), style: 'color:#2E9AFE;' %></span><br>
   <% end %>
+</br>
 <% @last_season = @seasons.order(:id).last %>
 <% if @last_season %>
 	<% if current_user == @last_season.user || current_user.admin? %>
@@ -10,3 +12,4 @@
 <% if logged_in? %>
 	<%= render 'seasons/form' %>
 <% end %>
+</center>
