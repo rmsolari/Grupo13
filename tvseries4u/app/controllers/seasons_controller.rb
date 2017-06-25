@@ -32,6 +32,11 @@ class SeasonsController < ApplicationController
   		redirect_to request.referrer || root_url
 	end
 
+	def episode
+		@season=Season.all.find(params[:id])
+		@episode=@season.episode.find(params[:id])
+	end
+
 	private
 
 		def find_season

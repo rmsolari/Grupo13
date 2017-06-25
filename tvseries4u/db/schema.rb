@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170624060317) do
+ActiveRecord::Schema.define(version: 20170625025118) do
+
+  create_table "capitulos", force: :cascade do |t|
+    t.string   "Episode"
+    t.integer  "numero"
+    t.integer  "season_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["season_id"], name: "index_capitulos_on_season_id"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text     "text"
@@ -66,6 +75,7 @@ ActiveRecord::Schema.define(version: 20170624060317) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "number"
+    t.         "user"
     t.integer  "user_id"
     t.index ["movie_id"], name: "index_seasons_on_movie_id"
     t.index ["user_id"], name: "index_seasons_on_user_id"
