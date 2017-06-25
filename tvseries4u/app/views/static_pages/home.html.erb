@@ -5,13 +5,16 @@
 	<% if logged_in? %>
 	<h1>Lista de series</h1>
 	<div class="jumbotron">
+		<center>
+		<div class="container">
+		  <ul class="list-inline">
+		    <li><%= link_to "Filtrar", filtrar_path %></li> |
+		    <li><%= link_to "Enviar a mail", movie_mail_path %></li> |
+		    <li><%= link_to "Descargar lista", filtrar_path %></li>
+		  </ul>
+		</div>
+		</center>
 	  <div class="row">
-	    <aside class="col-md-4">
-
-	    <!--  <section class="movie_form">
-	        <%= render 'shared/movie_form' %>
-	      </section> -->
-	    </aside>
         <div class="col-md-15">
       		<%= render 'shared/feed' %>
 					<center><%= link_to "Añadir nueva serie", new_movie_path, class: "btn btn-lg btn-info",
@@ -20,7 +23,6 @@
     	</div>
 	  </div>
 	</div>
-
 
 	<% else %>
 	<div class="center jumbotron">

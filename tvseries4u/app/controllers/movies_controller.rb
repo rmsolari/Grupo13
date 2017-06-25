@@ -29,6 +29,12 @@ class MoviesController < ApplicationController
     end
   end
 
+  def mail
+    NotifierMailer.send_list(current_user).deliver
+    flash[:success] = "Lista de series enviada a "+current_user.email
+    redirect_to home_url
+  end
+
   def show
     @movie=Movie.all.find(params[:id])
     @comments=Comment.where(movie_id: @movie).order("created_at DESC")

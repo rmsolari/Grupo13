@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get 'visitante', to: 'visitor#action'
 
   get '/new_movie', to: 'movies#new'
+  get '/movie_mail', to: 'movies#mail'
+
   get '/new_gender', to: 'genders#new'
 
 #  get '/season', to: 'seasons#show'
