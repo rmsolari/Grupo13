@@ -3,16 +3,15 @@
 <ul class="users">
   <% @genders.each do |gender| %>
   <span>
-    <%= gender.name %>
-    , id_user: <%= gender.user_id %>
+    <center><h4><%= gender.name %></h4>
     <% if current_user.present? && (current_user.id == gender.user_id || current_user.admin?)%>
       <%= link_to "delete", admin_destroy_gender_path(gender),
        method: :delete, data: { confirm: "Estás seguro que quieres eliminar el género #{gender.name}?" } %>
-    <% end %>
-  </span><br><br>
+    <% end %></center>
+  </span><br>
   <% end %>
   <center><%= link_to "Añadir nuevo género", new_gender_path, class: "btn btn-lg btn-info",
   style: 'color:#FFFFFF;' %></center>
 
-</ul>
+</ul></center>
 </div>

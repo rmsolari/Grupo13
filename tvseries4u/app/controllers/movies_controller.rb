@@ -76,7 +76,11 @@ class MoviesController < ApplicationController
 
     def generate_pdf(user)
       Prawn::Document.new do
-        @movies=Movie.where(user_id: user.id).or(Movie.where(user_id: 1))
+        if user.id == 1
+          @movies=Movie.all
+        else
+          @movies=Movie.where(user_id: user.id).or(Movie.where(user_id: 1))
+        end
         font "Helvetica", style: :bold
         font_size 20
         text "Lista de series de "+user.name, :align => :center

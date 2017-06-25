@@ -2,7 +2,7 @@ class GendersController < ApplicationController
   before_action :logged_in?, only: [:create, :destroy]
 
   def index
-    @genders = Gender.all
+    @genders = Gender.where(user_id: current_user.id).or(Gender.where(user_id: 1))
   end
 
   def new
