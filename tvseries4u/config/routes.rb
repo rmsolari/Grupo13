@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get '/new_movie', to: 'movies#new'
   get '/movie_mail', to: 'movies#mail'
+  get '/movie_download', to: 'movies#download'
 
   get '/new_gender', to: 'genders#new'
 

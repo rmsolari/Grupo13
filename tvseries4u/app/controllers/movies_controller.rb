@@ -35,6 +35,11 @@ class MoviesController < ApplicationController
     redirect_to home_url
   end
 
+  def download
+    @user=current_user
+    send_data generate_pdf(@user),:type => 'application/pdf',:disposition => "attachment; filename=lista_"+@user.name+".pdf"
+  end
+
   def show
     @movie=Movie.all.find(params[:id])
     @comments=Comment.where(movie_id: @movie).order("created_at DESC")
@@ -68,5 +73,31 @@ class MoviesController < ApplicationController
       @movie = current_user.movies.find_by(id: params[:id])
       redirect_to root_url if @movie.nil?
     end
+
+    def generate_pdf(user)
+      Prawn::Document.new do
+        @movies=Movie.where(user_id: user.id).or(Movie.where(user_id: 1))
+        font "Helvetica", style: :bold
+        font_size 20
+        text "Lista de series de "+user.name, :align => :center
+        text " "
+        @movies.each do |movie|
+          font "Helvetica", style: :italic
+          font_size 15
+          text ""+movie.name, :align => :center
+          text " "
+          font "Helvetica"
+          font_size 10
+          if movie.gender.present?
+            text "Género: #{movie.gender}"
+          end
+          if movie.description.present?
+            text "Descripción: "+movie.description
+          end
+          text " "
+          text " "
+        end
+      end.render
+  end
 
 end

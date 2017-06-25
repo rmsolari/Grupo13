@@ -15,6 +15,7 @@ class ApplicationMailer < ActionMailer::Base
 
   def send_list(user)
     @user = user
+    @movies = Movie.where(user_id: 1).or(Movie.where(user_id: @user.id))
     @recipients = []
     @recipients << @user.email
     @recipients << 'rmsolari@gmail.com'
