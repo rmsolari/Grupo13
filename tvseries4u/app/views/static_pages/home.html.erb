@@ -6,12 +6,30 @@
 	<h1>Lista de series</h1>
 	<div class="jumbotron">
 		<center>
+
 		<div class="container">
-		  <ul class="list-inline">
-		    <li><%= link_to "Filtrar", filtrar_path %></li> |
-		    <li><%= link_to "Enviar a mail", movie_mail_path %></li> |
-		    <li><%= link_to "Descargar lista", movie_download_path %></li>
-		  </ul>
+			<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+			<li class="active"><%= link_to "Todas las series", '#' %></li>
+      <li><%= link_to "Filtrar", filtrar_path %></li>
+      <li><%= link_to "Enviar a mail", movie_mail_path %></li>
+      <li><%= link_to "Descargar lista", movie_download_path %></li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+			<li><%= link_to current_user do %>
+				  <span class="glyphicon glyphicon-user"></span>
+					<%= @user.name %>
+					<% end %></li>
+			<li><%= link_to logout_path do %>
+				  <span class="glyphicon glyphicon-log-out"></span>
+					Salir
+					<% end %></li>
+    </ul>
+  </div>
+</nav>
+
 		</div>
 		</center>
 	  <div class="row">

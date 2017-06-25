@@ -1,14 +1,14 @@
 <li id="<%= movie.id %>">
   <% if logged_in? %>
-    <span class="name"><%= link_to movie.name,  movie, style: 'color:#2E9AFE;' %></span>
+  <%= link_to movie.name,  movie, style: 'color:#2E9AFE;' %></span>
   <% else %>
     <b><%= movie.name %></b>
   <% end %>
   <% if movie.gender.present? %>
     <span class="gender">, Género: <%= movie.gender %></span>
   <% end %>
-  <% if movie.description.present? %>
-    <span class="description">, Descripción: <%= movie.description %></span>
+  <% if movie.description.present? %><br><br>
+    <span class="description">Descripción: <%= movie.description %></span>
   <% end %>
   <span class="timestamp">
     Posted <%= time_ago_in_words(movie.created_at) %> ago.
