@@ -42,7 +42,10 @@ Rails.application.routes.draw do
   resources :users
   resources :seasons
   resources :movies do
-    resources :comments, :seasons
+    resources :comments
+    resources :seasons do
+      resources :episodes
+    end
   end
   resources :genders
   resources :movies,          only: [:create, :destroy]
