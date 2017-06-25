@@ -1,6 +1,6 @@
 class EpisodesController < ApplicationController
 	before_action :find_season
-	before_action :find_episode, only: [:destroy]
+	before_action :find_episode, only: [:destroy, :vote]
 
 
 	def index
