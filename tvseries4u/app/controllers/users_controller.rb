@@ -22,6 +22,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "Bienvenido a TVSeries4u!"
+      NotifierMailer.send_signup_email(@user).deliver
       redirect_to @user
     else
       render 'new'

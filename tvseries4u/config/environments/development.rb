@@ -9,6 +9,18 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :authentication => :plain,
+      :address => "smtp.mailgun.org",
+      :port => 587,
+      :domain => "sandboxc28e7d76209a41a88f32771315672509.mailgun.org",
+      :user_name => "postmaster@sandboxc28e7d76209a41a88f32771315672509.mailgun.org",
+      :password => "26a98f0f529722f43ad5aa7bbd7c7152"
+  }
+
   # Show full error reports.
   config.consider_all_requests_local = true
 
