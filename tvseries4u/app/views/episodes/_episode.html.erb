@@ -1,21 +1,25 @@
+<div class="jumbotron">
+<center><b><%= "Capítulos Vistos"%></b><br>
 <% @episodes.each do |episode| %>
-  <%= "Capítulo "+episode.numero.to_s %>
+  <%= "Capítulo      "+episode.numero.to_s %>
   <%= link_to like_episode_path(id: episode.id, season_id: episode.season_id), class:"like-btn", method: :put, remote: :true do %>
-    <%= episode.vote_by :voter => current_user %>
   	<% if current_user.liked? episode %>
-  		<span><i class="fa fa-eye fa-2x" aria-hidden="true" style="color:red"></i></span>
+  		<span><i class="fa fa-eye fa-2x" aria-hidden="true" style="color:black"></i></span>
     <% elsif !current_user.liked? episode %>
-      <span><i class="fa fa-eye fa-2x" aria-hidden="true" style="color:white"></i></span>
+      <span><i class="fa fa-eye fa-2x" aria-hidden="true" style="color:grey"></i></span>
   	<% end %>
   <% end %>
   <br>
 <% end %>
+</center>
+<br>
 <% @last_episode = @episodes.order(:id).last %>
 <% if @last_episode %>
 	<% if current_user.id == @last_episode.user_id || current_user.admin? %>
-	    <%= link_to "Borrar último episodio", [@last_episode.season, @last_episode], method: :delete %>
+	  <center><%= link_to "Borrar último episodio", [@last_episode.season, @last_episode], method: :delete, align: :left%> 
 	<% end %>
 <% end %>
 <% if logged_in? %>
 	<%= render 'episodes/form' %>
 <% end %>
+</div>
