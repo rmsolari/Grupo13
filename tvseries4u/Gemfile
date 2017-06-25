@@ -18,6 +18,9 @@ gem 'sqlite3', :group => [:development, :test]
 gem 'faker', '~> 1.4.2'
 gem 'cancancan'
 gem 'rolify'
+gem 'acts_as_votable'
+gem 'responders'
+gem 'font-awesome-sass', '~> 4.6.2'
 gem 'prawn'
 group :production do
   gem 'thin'

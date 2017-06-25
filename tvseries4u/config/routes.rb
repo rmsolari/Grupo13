@@ -44,10 +44,19 @@ Rails.application.routes.draw do
   resources :seasons
   resources :movies do
     resources :comments
-    resources :seasons do
-      resources :episodes
+    resources :seasons
+  end
+
+  resources :seasons do
+    resources :episodes
+  end
+
+  resources :episodes do
+    member do
+      put "like" => "episodes#vote"
     end
   end
+
   resources :genders
   resources :movies,          only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]

@@ -24,6 +24,7 @@ class SeasonsController < ApplicationController
 
 	def show
 		@season = Season.find(params[:id])
+		@episodes = Episode.where(season_id: @season).order("created_at ASC")
 		#@season = Season.find_by(movie_id: params[:movie_id])
 	end
 

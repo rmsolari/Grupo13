@@ -1,0 +1,21 @@
+<% @episodes.each do |episode| %>
+  <%= "Capítulo "+episode.numero.to_s %>
+  <%= link_to like_episode_path(episode), class:"like-btn", method: :put, remote: :true do %>
+    <%= current_user.liked? episode %>  
+  	<% if current_user.liked? episode %>
+  		<span><i class="fa fa-eye fa-2x" aria-hidden="true" style="color:red"></i></span>
+    <% elsif !current_user.liked? episode %>
+      <span><i class="fa fa-eye fa-2x" aria-hidden="true" style="color:white"></i></span>
+  	<% end %>
+  <% end %>
+  <br>
+<% end %>
+<% @last_episode = @episodes.order(:id).last %>
+<% if @last_episode %>
+	<% if current_user.id == @last_episode.user_id || current_user.admin? %>
+	    <%= link_to "Borrar último episodio", [@last_episode.season, @last_episode], method: :delete %>
+	<% end %>
+<% end %>
+<% if logged_in? %>
+	<%= render 'episodes/form' %>
+<% end %>

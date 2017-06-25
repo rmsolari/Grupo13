@@ -1,4 +1,6 @@
   class User < ApplicationRecord
+    acts_as_voter
+
     has_many :genders
     has_many :comments
     has_many :seasons
