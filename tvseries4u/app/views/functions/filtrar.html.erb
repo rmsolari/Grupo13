@@ -3,7 +3,11 @@
   <div class="jumbotron">
     <%= form_tag({:controller => "functions", :action => "filtrar"}, :method => "get") do %>
     <center>Seleccione género</center><br>
-    <%= collection_select :gender, :id, @genders, :id, :name %>
+    <%= collection_select :gender, :id, @genders, :id, :name, include_blank: true %>
+    <center>Seleccione director</center><br>
+    <%= collection_select :director, :id, @directors, :id, :director, include_blank: true %>
+    <center>Seleccione año</center><br>
+    <%= collection_select :year, :id, @years, :id, :year, include_blank: true %>
     <%= submit_tag "Actualizar", class: "btn btn-primary" %>
     <% end %>
     <div id="resultados">

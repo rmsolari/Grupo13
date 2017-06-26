@@ -1,11 +1,11 @@
 <h1>Estadísticas</h1>
 <div class="jumbotron">
 
-    <h4>Cantidad de usuarios registrados: <%= @users.count %><br><br>
-    Cantidad de series registradas: <%= @movies.count %><br></h4>
+    <center><h4>Cantidad de usuarios registrados: <%= @users.count %><br><br>
+    Cantidad de series registradas: <%= @movies.count %><br></h4></center>
 
-    <li><%= link_to "Estadísticas generales", 'st_generales_path' %></li>
+    <h5><li><%= link_to "Estadísticas generales", 'st_generales_path' %></li>
     <li><%= link_to "Estadísticas por usuario", 'st_usuario_path' %></li>
-    <li><%= link_to "Ver gráficos", 'st_graficos_path' %></li>
+    <li><%= link_to "Ver gráficos", 'st_graficos_path' %></li></h5>
 
 </div>

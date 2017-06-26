@@ -1,0 +1,45 @@
+<h1>Estadísticas por usuario</h1>
+<div class="jumbotron">
+<ul class="users">
+  <div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Avatar</th>
+        <th>Nombre</th>
+        <th>Mail</th>
+        <th>Series</th>
+        <th>Géneros</th>
+        <th>Total visto</th>
+      </tr>
+    </thead>
+    <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= gravatar_for user, size: 50 %></td>
+              <td><%= user.name %><br>
+                <% if not user.admin? %>
+                <%= link_to "Eliminar", admin_destroy_user_path(user),
+                   method: :delete,
+                   data: { confirm: "Estás seguro de eliminar a "+user.name+"?" } %><br>
+                 <% end %>Creado hace: <%= time_ago_in_words(user.created_at) %></td>
+              <td><%= user.email %></td>
+              <td><% @movies=Movie.where(user_id: user.id)%>
+                <% @movies.each do |movie| %>
+                <%= movie.name %><br>
+                <% end %>
+              </td>
+              <td><% @genders=Gender.where(user_id: user.id)%>
+                <% @genders.each do |gender| %>
+                <%= gender.name %><br>
+                <% end %>
+              </td>
+              <td><%= "0 minutos" %></td>
+            </tr>
+          <% end %>
+      </tbody>
+  </table>
+      </div>
+
+</ul>
+</div>
