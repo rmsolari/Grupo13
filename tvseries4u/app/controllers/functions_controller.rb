@@ -14,31 +14,34 @@ class FunctionsController < ApplicationController
     @res_g=params[:gender]
     @res_d=params[:director]
     @res_y=params[:year]
-    if @res_g[:id].present? and @res_d[:id].present? and @res_y[:id].present?
-      puts "entra 1"
-      @gender=Gender.find(params[:gender][:id])
-      @movies=Movie.where(gender: @gender[:name], id: params[:director][:id], id: params[:year][:id])
-    elsif @res_g[:id].present? and @res_d[:id].present?
-      puts "entra 2"
-      @gender=Gender.find(params[:gender][:id])
-      @movies=Movie.where(gender: @gender[:name], id: params[:director][:id])
-    elsif @res_g[:id].present? and @res_y[:id].present?
-      puts "entra 3"
-      @gender=Gender.find(params[:gender][:id])
-      @movies=Movie.where(gender: @gender[:name], id: params[:year][:id])
-    elsif @res_d[:id].present? and @res_y[:id].present?
-      puts "entra 4"
-      @movies=Movie.where(id: params[:director][:id], id: params[:year][:id])
-    elsif @res_d[:id].present?
-      puts "entra 5"
-      @movies=Movie.where(id: params[:director][:id])
-    elsif @res_g[:id].present?
-      puts "entra 6"
-      @gender=Gender.find(params[:gender][:id])
-      @movies=Movie.where(gender: @gender[:name])
-    elsif @res_y[:id].present?
-      puts "entra 7"
-      @movies=Movie.where(id: params[:year][:id])
+    @resultado=params[:gender]
+    if @resultado
+      if @res_g[:id].present? and @res_d[:id].present? and @res_y[:id].present?
+        puts "entra 1"
+        @gender=Gender.find(params[:gender][:id])
+        @movies=Movie.where(gender: @gender[:name], id: params[:director][:id], id: params[:year][:id])
+      elsif @res_g[:id].present? and @res_d[:id].present?
+        puts "entra 2"
+        @gender=Gender.find(params[:gender][:id])
+        @movies=Movie.where(gender: @gender[:name], id: params[:director][:id])
+      elsif @res_g[:id].present? and @res_y[:id].present?
+        puts "entra 3"
+        @gender=Gender.find(params[:gender][:id])
+        @movies=Movie.where(gender: @gender[:name], id: params[:year][:id])
+      elsif @res_d[:id].present? and @res_y[:id].present?
+        puts "entra 4"
+        @movies=Movie.where(id: params[:director][:id], id: params[:year][:id])
+      elsif @res_d[:id].present?
+        puts "entra 5"
+        @movies=Movie.where(id: params[:director][:id])
+      elsif @res_g[:id].present?
+        puts "entra 6"
+        @gender=Gender.find(params[:gender][:id])
+        @movies=Movie.where(gender: @gender[:name])
+      elsif @res_y[:id].present?
+        puts "entra 7"
+        @movies=Movie.where(id: params[:year][:id])
+      end
     end
 
   end
