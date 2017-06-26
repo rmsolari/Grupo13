@@ -1,5 +1,6 @@
 <div class="jumbotron">
 <center>
+<%= link_to "Volver a "+ @movie.name, movie_path(id: @movie.id), align: :left %><br>
 <b><%= "Capítulo Vistos"%></b><br>
 <% @episodes.each do |episode| %>
   <%= "Capítulo "+episode.numero.to_s %>
