@@ -17,6 +17,7 @@ class EpisodesController < ApplicationController
 		elsif current_user.liked? @episode
 			@episode.unliked_by current_user
 		end
+		redirect_to :back
 	end
 
 	def create
