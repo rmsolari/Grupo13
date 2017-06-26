@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170625112920) do
+ActiveRecord::Schema.define(version: 20170626003222) do
 
   create_table "capitulos", force: :cascade do |t|
     t.string   "Episode"
@@ -71,6 +71,9 @@ ActiveRecord::Schema.define(version: 20170625112920) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "gender"
+    t.integer  "year"
+    t.string   "director"
+    t.string   "language"
     t.index ["user_id", "created_at"], name: "index_movies_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_movies_on_user_id"
   end

@@ -15,6 +15,9 @@
           <% if movie.description.present? %>
             <h5>Descripción: <%= movie.description %></h5>
           <% end %>
+          <% if movie.year.present? %>
+            <h5>Year: <%= movie.year.to_s %></h5>
+          <% end %>
           <br>
     </div>
   </div>

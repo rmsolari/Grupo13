@@ -8,6 +8,15 @@
     <% if @movie.description.present? %>
     <span class="description"><b>Descripción:</b> <%= @movie.description %></span><br>
     <% end %>
+    <% if @movie.director.present? %>
+    <span class="description"><b>Año:</b> <%= @movie.director %></span><br>
+    <% end %>
+    <% if @movie.language.present? %>
+    <span class="description"><b>Idioma:</b> <%= @movie.language %></span><br>
+    <% end %>
+    <% if @movie.year.present? %>
+    <span class="description"><b>Año:</b> <%= @movie.year %></span><br>
+    <% end %>
     <b>Temporadas: </b><%= @movie.seasons.count %></span><br>
     <% @cantidad_capitulos = 0 %>
     <% @cantidad_capitulos_vistos = 0 %>

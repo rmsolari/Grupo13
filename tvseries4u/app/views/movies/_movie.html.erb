@@ -8,6 +8,15 @@
   <% if movie.description.present? %><br>
     <span class="description"><b>Descripción: </b><%= movie.description %></span>
   <% end %>
+  <% if movie.director.present? %><br>
+    <span class="description"><b>Año: </b><%= movie.director %></span>
+  <% end %>
+  <% if movie.language.present? %><br>
+    <span class="description"><b>Idioma: </b><%= movie.language %></span>
+  <% end %>
+  <% if movie.year.present? %><br>
+    <span class="description"><b>Año: </b><%= movie.year %></span>
+  <% end %>
   <span class="timestamp"><br>
     Posted <%= time_ago_in_words(movie.created_at) %> ago.
     <% if current_user.present? && (current_user.id == movie.user_id || current_user.admin?)%>

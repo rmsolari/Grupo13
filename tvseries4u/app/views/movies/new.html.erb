@@ -4,11 +4,17 @@
     <%= form_for(@movie) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <%= f.label :nombre %>
-    <%= f.text_area :name, placeholder: "Ingresa nombre de nueva serie .." %>
+    <%= f.text_field :name, placeholder: "Ingresa nombre de nueva serie .." %>
     <%= f.label :"selecciona género" %>
     <%= f.select(:gender, @genders.collect {|p| [ p.name ] } + [ [ 'Crear nuevo género', 'new' ] ], {:include_blank => true}) %>
     <%= f.label :descripción %>
     <%= f.text_area :description, placeholder: "Ingresa descripción de serie" %>
+    <%= f.label :director %>
+    <%= f.text_field :director, placeholder: "Ingresa el director" %>
+    <%= f.label :año %>
+    <%= f.text_field :language, placeholder: "Ingresa el idioma" %>
+    <%= f.label :año %>
+    <%= f.number_field :year, placeholder: "Ingresa año" %>
     <%= f.submit "Añadir", class: "btn btn-primary" %>
     <% end %>
   </div>
