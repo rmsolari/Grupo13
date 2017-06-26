@@ -1,16 +1,19 @@
+<div class="jumbotron">
+<center>
+<b><%= "Capítulo Vistos"%></b><br>
 <% @episodes.each do |episode| %>
   <%= "Capítulo "+episode.numero.to_s %>
   <%= link_to like_episode_path(id: episode.id, season_id: episode.season_id), class:"like-btn", method: :put, remote: :true do %>
-    <%= episode.vote_by :voter => current_user %>
   	<% if current_user.liked? episode %>
   		<span><i class="fa fa-eye fa-2x" aria-hidden="true" style="color:black" ></i></span>
 
     <% elsif !current_user.liked? episode %>
-      <span><i class="fa fa-eye fa-2x" aria-hidden="true" style="color:white"></i></span>
+      <span><i class="fa fa-eye fa-2x" aria-hidden="true" style="color:grey"></i></span>
   	<% end %>
-  <% end %>
+    <% end %>
   <br>
 <% end %>
+<br>
 <% @last_episode = @episodes.order(:id).last %>
 <% if @last_episode %>
 	<% if current_user.id == @last_episode.user_id || current_user.admin? %>
@@ -20,3 +23,5 @@
 <% if logged_in? %>
 	<%= render 'episodes/form' %>
 <% end %>
+</center>
+</div>
